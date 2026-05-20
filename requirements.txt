@@ -1,5 +1,0 @@
-streamlit
-pandas
-matplotlib
-requests
-azure-storage-blob
