@@ -367,8 +367,7 @@ with tab2:
                         <span class="badge badge-red">Deceased: {'Yes' if pd.notna(row.get('DOD')) else 'No'}</span>
                     </div>
                 </div>
-                <div style="text-align:center;background:rgba({','.join([str(int(int(color[1:],16)>>shift&0xff)) for shift in [16,8,0]])},0.15);
-                     border:1px solid {color};border-radius:12px;padding:12px 20px">
+                <div style="text-align:center;border:2px solid {color};border-radius:12px;padding:12px 20px;background:#1a1f2e">
                     <div style="font-size:2rem;font-weight:800;color:{color}">{score}</div>
                     <div style="font-size:0.75rem;font-weight:600;color:{color}">{level}</div>
                 </div>
@@ -559,7 +558,7 @@ with tab5:
         wedges,_,autotexts=ax.pie(sizes,labels=labels,autopct="%1.1f%%",
             colors=["#f472b6","#38bdf8"],startangle=90,
             textprops={"color":"white","fontsize":10},
-            wedgeprops={"edgecolor":"rgba(255,255,255,0.1)","linewidth":2})
+            wedgeprops={"edgecolor":"#0d1b2a","linewidth":2})
         st.pyplot(fig,transparent=True); plt.close()
 
     with rr2:
