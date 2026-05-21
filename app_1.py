@@ -193,11 +193,9 @@ def ask_ai(messages):
 
 # ── CHART HELPER ───────────────────────────────────────────────────────────
 def glass_fig(w=6,h=4):
-    fig,ax = plt.subplots(figsize=(w,h),facecolor="none")
-    fig.patch.set_alpha(0)
-    ax.set_facecolor("none")
+    fig,ax = plt.subplots(figsize=(w,h),facecolor="#0d1b2a")
+    ax.set_facecolor("#111827")
     ax.tick_params(colors="#94a3b8",labelsize=9)
-    ax.spines[:].set_color("rgba(255,255,255,0.08)")
     for spine in ax.spines.values():
         spine.set_edgecolor("#1e3a5f")
     return fig,ax
@@ -287,7 +285,7 @@ with tab1:
         wedges,_,autotexts=ax.pie(gender,labels=gender.index,autopct="%1.1f%%",
             colors=["#38bdf8","#f472b6"],startangle=90,
             textprops={"color":"white","fontsize":11},
-            wedgeprops={"edgecolor":"rgba(255,255,255,0.1)","linewidth":2})
+            wedgeprops={"edgecolor":"#0d1b2a","linewidth":2})
         st.pyplot(fig,transparent=True); plt.close()
 
     with col2:
@@ -295,7 +293,7 @@ with tab1:
         adm=df_a["ADMISSION_TYPE"].value_counts()
         fig,ax=glass_fig(5,3.5)
         bars=ax.bar(adm.index,adm.values,color=["#38bdf8","#f472b6","#34d399"],
-                    edgecolor="rgba(255,255,255,0.1)",linewidth=1.5,width=0.6)
+                    edgecolor="#1e3a5f",linewidth=1.5,width=0.6)
         for bar in bars:
             ax.text(bar.get_x()+bar.get_width()/2,bar.get_height()+1,
                    str(int(bar.get_height())),ha="center",color="white",fontsize=10,fontweight="bold")
@@ -448,7 +446,7 @@ with tab3:
             fig,ax=glass_fig(7,3)
             colors_bar=["#38bdf8","#f472b6","#34d399"]
             y=range(len(categories))
-            ax.barh(y,[m for m in max_vals],color="rgba(255,255,255,0.05)",edgecolor="rgba(255,255,255,0.1)",height=0.5)
+            ax.barh(y,[m for m in max_vals],color="#111827",edgecolor="#1e3a5f",height=0.5)
             ax.barh(y,values,color=colors_bar,edgecolor="none",height=0.5,alpha=0.85)
             ax.set_yticks(y); ax.set_yticklabels(categories,color="white",fontsize=10)
             ax.set_xlabel("Score",color="#94a3b8",fontsize=9)
